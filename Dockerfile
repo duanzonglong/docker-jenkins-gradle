@@ -13,7 +13,7 @@ USER jenkins
 SHELL ["/bin/bash", "-c"]
 RUN curl -s "https://get.sdkman.io" | bash \
     && source "$SDKMAN_DIR/bin/sdkman-init.sh" \
-    && sdk install gradle 4.0\
+    && sdk install gradle 5.0\
     && sdk install maven\
     && /usr/local/bin/install-plugins.sh git gradle workflow-aggregator pipeline-utility-steps active-directory maven
 
@@ -27,7 +27,7 @@ RUN echo "jenkins ALL=NOPASSWD: ALL" >> /etc/sudoers
 # nodejs
 #
 RUN mkdir /nodejs
-RUN curl -O http://nodejs.org/dist/v7.10.0/node-v7.10.0-linux-x64.tar.gz
-RUN tar xvzf node-v7.10.0-linux-x64.tar.gz -C /nodejs --strip-components=1
+RUN curl -O http://nodejs.org/dist/v10.14.1/node-v10.14.1-linux-x64.tar.gz
+RUN tar xvzf node-v10.14.1-linux-x64.tar.gz -C /nodejs --strip-components=1
 ENV PATH $PATH:/nodejs/bin
 RUN npm install -g cnpm --registry=https://registry.npm.taobao.org
