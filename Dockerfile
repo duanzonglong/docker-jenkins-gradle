@@ -13,7 +13,7 @@ USER jenkins
 SHELL ["/bin/bash", "-c"]
 RUN curl -s "https://get.sdkman.io" | bash \
     && source "$SDKMAN_DIR/bin/sdkman-init.sh" \
-    && sdk install gradle 5.0\
+    && sdk install gradle 4.10.2\
     && sdk install maven\
     && /usr/local/bin/install-plugins.sh git gradle workflow-aggregator pipeline-utility-steps active-directory maven
 
